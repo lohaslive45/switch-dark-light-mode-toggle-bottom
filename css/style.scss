@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+//!====== A.(初始)背景-黑 -*-*
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #2b2b2b;
+  transition: 0.5s;
+}
+//!====== A.(切換)背景-白 -*-*
+body.active {
+  background: #f8f8f8;
+}
+
+//!====== B.(初始)滑動凹槽 - 黑 --**--**
+#toggle {
+  position: relative;
+  display: block;
+  width: 320px;
+  height: 160px;
+  border-radius: 160px;
+  background: #222;
+  transition: 0.5s;
+  cursor: pointer;
+  //*--- 平移 x | 平移 y | 模糊半徑 | 顏色 ---
+  box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1),
+    inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+}
+//!====== B.(切換)滑動凹槽 - 白 --**--**
+#toggle.active {
+  background: #fff;
+  box-shadow: inset 0 2px 60px rgba(0, 0, 0, 0.1),
+    inset 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 8px rgba(0, 0, 0, 0.05);
+}
+
+//!====== C.(初始) 圓形按鈕 -黑 +*+*
+#toggle .indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160px;
+  height: 160px;
+  //*---漸層顏色 方向 | 顏色1 | 顏色2 ---
+  background: linear-gradient(to bottom, #444, #222);
+  border-radius: 50%;
+  transform: scale(0.9); //*---留白 圓形滑動開關周圍
+  //*---外陰影-下半圓弧陰影 , 內光輝-上半圓弧光亮 ,內光輝-下半圓弧光亮
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5),
+    inset 0 4px 4px rgba(255, 255, 255, 0.2),
+    inset 0 -4px 4px rgba(255, 255, 255, 0.2);
+  transition: 0.5s;
+}
+
+//!====== C.(切換) 圓形按鈕 -白 +*+*
+#toggle.active .indicator {
+  left: 160px;
+  background: linear-gradient(to bottom, #eaeaea, #f9f9f9);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1),
+    inset 0 4px 4px rgba(255, 255, 255, 1),
+    inset 0 -4px 4px rgba(255, 255, 255, 1);
+}
